@@ -1,0 +1,18 @@
+
+iceberg_lakehouse:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "<ACCOUNT_NAME>"          # e.g. xy12345.eu-west-1
+      user: "<USER>"
+      password: "<PASSWORD>"             # or use keypair_auth / SSO
+      role: "<ROLE>"
+      database: "<DATABASE>"
+      warehouse: "<WAREHOUSE>"
+      schema: "ICEBERG_MARTS"
+      threads: 8
+      client_session_keep_alive: false
+      # If using key pair:
+      # private_key_path: "~/.ssh/snowflake_key.p8"
+      # private_key_passphrase: "<PASSPHRASE>"

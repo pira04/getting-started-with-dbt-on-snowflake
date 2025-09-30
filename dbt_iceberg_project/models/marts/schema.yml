@@ -1,0 +1,13 @@
+
+version: 2
+
+models:
+  - name: fct_orders_ice
+    description: "Fact table written as a Snowflake-managed Iceberg table"
+    columns:
+      - name: order_id
+        tests: [not_null, unique]
+      - name: order_ts
+        tests: [not_null]
+      - name: customer_id
+        tests: [not_null]

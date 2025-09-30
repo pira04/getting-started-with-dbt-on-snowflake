@@ -1,0 +1,21 @@
+
+# dbt Iceberg catalog integration configuration
+# Place at the root of your dbt project.
+# Adjust values to match your Snowflake environment.
+#
+# For Snowflake-managed Iceberg, use the built-in catalog and specify an EXTERNAL VOLUME.
+# See: https://docs.getdbt.com/docs/mesh/iceberg/snowflake-iceberg-support
+#      https://docs.getdbt.com/docs/mesh/iceberg/about-catalogs
+#      https://docs.snowflake.com/en/user-guide/tables-iceberg-configure-catalog-integration
+
+catalogs:
+  - name: catalog_snowflake_managed
+    active_write_integration: snowflake_builtin
+    write_integrations:
+      - name: snowflake_builtin
+        external_volume: "<EXTERNAL_VOLUME_NAME>"   # e.g. ICEBERG_EXT_VOL
+        table_format: iceberg
+        catalog_type: built_in
+        # adapter_properties can include extra Snowflake configs if needed
+        adapter_properties:
+          change_tracking: 'True'

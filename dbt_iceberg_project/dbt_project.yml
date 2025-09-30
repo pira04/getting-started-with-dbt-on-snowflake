@@ -1,0 +1,33 @@
+
+name: iceberg_lakehouse
+version: 1.0.0
+config-version: 2
+
+profile: iceberg_lakehouse
+
+# Enable recent Iceberg behaviors if your env requires it.
+# Some environments still need this flag enabled to materialize Iceberg.
+flags:
+  enable_iceberg_materializations: true
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+analysis-paths: ["analyses"]
+
+vars: {}
+
+models:
+  iceberg_lakehouse:
+    +on_schema_change: sync_all_columns
+    +persist_docs: { relation: true, columns: true }
+    staging:
+      +materialized: view
+    marts:
+      +materialized: incremental
+      +incremental_strategy: merge
+      +unique_key: order_id
+      # If you prefer the legacy method, uncomment the next line on individual models:
+      # +table_format: iceberg

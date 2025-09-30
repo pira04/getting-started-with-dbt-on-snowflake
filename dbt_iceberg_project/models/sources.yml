@@ -1,0 +1,13 @@
+
+version: 2
+
+sources:
+  - name: lake
+    database: {{ target.database }}
+    schema: ICEBERG_RAW
+    description: "Snowflake-managed Iceberg raw layer"
+    tables:
+      - name: orders_ice
+        description: "Managed Iceberg table with raw orders"
+      - name: customers_ice
+        description: "Managed Iceberg table with raw customers"
