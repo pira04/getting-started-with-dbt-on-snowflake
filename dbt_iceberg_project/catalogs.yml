@@ -9,11 +9,11 @@
 #      https://docs.snowflake.com/en/user-guide/tables-iceberg-configure-catalog-integration
 
 catalogs:
-  - name: catalog_snowflake_managed
+  - name: "catalog_snowflake_managed"
     active_write_integration: snowflake_builtin
     write_integrations:
       - name: snowflake_builtin
-        external_volume: "<EXTERNAL_VOLUME_NAME>"   # e.g. ICEBERG_EXT_VOL
+        external_volume: "iceberg_external_volume_test"   # e.g. ICEBERG_EXT_VOL
         table_format: iceberg
         catalog_type: built_in
         # adapter_properties can include extra Snowflake configs if needed

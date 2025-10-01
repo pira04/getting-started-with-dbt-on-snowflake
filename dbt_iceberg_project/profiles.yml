@@ -7,9 +7,9 @@ iceberg_lakehouse:
       account: "<ACCOUNT_NAME>"          # e.g. xy12345.eu-west-1
       user: "<USER>"
       password: "<PASSWORD>"             # or use keypair_auth / SSO
-      role: "<ROLE>"
-      database: "<DATABASE>"
-      warehouse: "<WAREHOUSE>"
+      role: "DBT_ROLE"
+      database: "IP_ICEBERG_ANALYTICS"
+      warehouse: "DBT_PROJECTS_WH"
       schema: "ICEBERG_MARTS"
       threads: 8
       client_session_keep_alive: false
