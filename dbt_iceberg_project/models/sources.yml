@@ -3,7 +3,7 @@ version: 2
 
 sources:
   - name: lake
-    database: {{ target.database }}
+    database: IP_ICEBERG_ANALYTICS
     schema: ICEBERG_RAW
     description: "Snowflake-managed Iceberg raw layer"
     tables:
