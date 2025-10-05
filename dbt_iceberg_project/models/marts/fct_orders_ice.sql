@@ -4,7 +4,7 @@
     materialized='incremental',
     incremental_strategy='merge',
     unique_key='order_id',
-    catalog_name='catalog_snowflake_managed'  -- <-- uses catalogs.yml integration
+    catalog_name='catalog_snowflake_managed'  # <-- uses catalogs.yml integration
     # If you're on older adapters, use legacy:
     # table_format='iceberg'
   )
